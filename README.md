@@ -6,9 +6,9 @@ MarvelAPI_Flask
 	 Durante este projeto forem utilizadas tecnologias solicitadas que forem parte do requisito e algumas mais, sendo assim utilizei forem: Flask, APIMarvel, bootstrap, jquery, javaScript, SQLALchemy.
 	 
  - Instalação e execução do projeto:
- 1 - Clonar o projeto.
- 2 - Abrir o projeto no editor de código.
- 3 - Criar um ambiente virtual e ativá-lo.
+ 1. Clonar o projeto.
+ 2. Abrir o projeto no editor de código.
+ 3. Criar um ambiente virtual e ativá-lo.
  Para criar o ambiente virtual e ativá-lo siga os seguintes passos:
  
  - Criar:
