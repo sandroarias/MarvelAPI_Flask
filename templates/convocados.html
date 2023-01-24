@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<h2 style="text-align: center;">Lista Convocados</h2>
+<hr>
+<p>
+    <button class="btn btn-dark" id="todos">TODOS
+    </button>
+    <button class="btn btn-dark" id="equipes">EQUIPE
+    </button>
+    <button class="btn btn-dark" id="vingadores">VINGADORES
+    </button>
+</p>
+<br><br>
+<div class="row">
+    {% for heroi in lista_herois %}
+    <form class="col-md-3 {{heroi.get_dbType()}}" style="display: block;" method="POST">
+        <div class="card" style="width: 18rem;">
+            <img src="{{heroi.get_image()}}" class="card-img-top" alt="{{heroi.get_image()}}">
+            <div class="card-body">
+                <h5 class="card-title"><b>{{heroi.get_nome()}}</b></h5>
+                <p class="card-text">{{heroi.get_description()}}</p>
+                <h4><span class="badge bg-success">{{heroi.get_dbType()}}</span></h4>
+                <a href="/remove_heroi/{{heroi.get_dbId()}}"
+                   onclick="return confirm('Deseja remover esse Vingador?')"
+                   class="btn btn-danger btn-xs">Excluir</a>
+                <input value="{{heroi.get_id(), heroi.id}}" type="hidden" name="id"/>
+            </div>
+        </div>
+
+        <br>
+    </form>
+    {% endfor%}
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            {% if lista_herois.has_prev %}
+            <li class="page-item"><a class="page-link" href="{{url_for('convocados', page=lista_herois.prev_num)}}">Anterior</a>
+            </li>
+            {% else %}
+            <li class="page-item"><a class="page-link btn disabled" href="#">Anterior</a></li>
+            {% endif %}
+
+            {% if lista_herois.has_next %}
+            <li class="page-item"><a class="page-link" href="{{url_for('convocados', page=lista_herois.next_num)}}">Proximo</a>
+            </li>
+            {% else%}
+            <li class="page-item"><a class="page-link btn disabled" href="#">Proximo</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+
+
+{% endblock conteudo %}
+
+{% block script %}
+
+<script>
+
+       $(document).ready(function () {
+        $("#vingadores").click(function () {
+          var x = document.getElementsByClassName("vingador");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = 'block';
+            }
+            var x = document.getElementsByClassName("equipe");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = 'none';
+            }
+        });
+      });
+
+      $(document).ready(function () {
+        $("#todos").click(function () {
+          var x = document.getElementsByClassName("vingador");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = 'block';
+            }
+            var x = document.getElementsByClassName("equipe");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = 'block';
+            }
+        });
+      });
+
+       $(document).ready(function () {
+        $("#equipes").click(function () {
+          var x = document.getElementsByClassName("vingador");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = 'none';
+            }
+            var x = document.getElementsByClassName("equipe");
+            var i;
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = 'block';
+            }
+        });
+      });
+
+
+
+
+
+</script>
+
+{% endblock script %}

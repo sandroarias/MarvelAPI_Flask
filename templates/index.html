@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<h2 style="text-align: center;">Lista de Herois </h2>
+<form class="d-flex" method="GET" id="search-form">
+    <input id="search-input" class="form-control me-2" type="search" name="search" placeholder="Buscar Heroi" aria-label="Search">
+    <button id="search-btn" class="btn btn-outline-success" type="submit">Search</button>
+</form>
+<hr>
+<div class="row">
+    {% for heroi in lista_herois %}
+    <form action="{{url_for('index')}}" method="POST" class="col-md-3">
+        <div class="card" style="width: 18rem;">
+            <img src="{{heroi.get_image()}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><b>{{heroi.get_nome()}}</b></h5>
+                <p class="card-text">{{heroi.get_description()}}</p>
+                <div class="d-flex">
+                    <input value="{{heroi.get_id()}}" type="hidden" name="id"/>
+                    <select class="form-select me-2" name="types" id="type-select">
+                        <option value="vingador">Vingador</option>
+                        <option value="equipe">Equipe</option>
+                    </select>
+                    <button type="submit" class="btn btn-dark">Convocar</button>
+                </div>
+            </div>
+        </div>
+        <br>
+    </form>
+    {% endfor %}
+</div>
+{% endblock conteudo %}
+
