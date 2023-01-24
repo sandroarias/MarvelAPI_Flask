@@ -35,6 +35,10 @@ MarvelAPI_Flask
 # Caso algum comando retornar erro de permissão execute o código e tente novamente 
 
     Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+    
+# Instalar o requirements.txt
+
+    pip instal -r requirements.txt
 
  - No terminar com o ambiente virtual ativado escrever: 
  `python app.py`
