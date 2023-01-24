@@ -15,23 +15,24 @@ MarvelAPI_Flask
  # Linux
  
 
-    python3 -m venv venv
+    python3 -m venv [nome_virtualenv]
     
   # Windows
   
 
-    python -m venv venv 
+    python -m venv [nome_virtualenv] 
 
  - Ativar:
  
  # Linux
  
 
-    source venv/bin/activate
+    source [nome_virtualenv]/bin/activate
     
 # windows
 
-    venv/Scripts/Activate
+    [nome_virtualenv]/Scripts/Activate
+    
 # Caso algum comando retornar erro de permissão execute o código e tente novamente 
 
     Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
