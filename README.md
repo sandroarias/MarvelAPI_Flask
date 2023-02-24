@@ -39,7 +39,7 @@ MarvelAPI_Flask
     
 # Instalar o requirements.txt
 
-    pip instal -r requirements.txt
+    pip install -r requirements.txt
 
  - No terminar com o ambiente virtual ativado escrever: 
  `python app.py`
